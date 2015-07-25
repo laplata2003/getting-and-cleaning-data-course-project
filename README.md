@@ -4,7 +4,7 @@ The main outcome of this project is the tidy dataset defined in the point (5) of
 
 [TidyDataSet.txt](./TidyDataSet.txt)
 
-In order to read this file, it can be done with the following code snipet (running in the same):
+In order to read this file, it can be done with the following code snipet (running in the same directory):
 	
 	read.table("TidyDataSet.txt", header=TRUE)
 
