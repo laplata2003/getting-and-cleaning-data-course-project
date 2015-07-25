@@ -3,6 +3,91 @@
 ## Data dictionary
 The following are the variables contained in the [tidy data set file](./TidyDataSet.txt): 
 
-```{text}
-1   
----
+ [1] activity_name                                               
+ [2] subject_id                                                  
+ [3] Time_Body_Accelerator_std_X                                 
+ [4] Time_Body_Accelerator_std_Y                                 
+ [5] Time_Body_Accelerator_std_Z                                 
+ [6] Time_Gravity_Accelerator_std_X                              
+ [7] Time_Gravity_Accelerator_std_Y                              
+ [8] Time_Gravity_Accelerator_std_Z                              
+ [9] Time_Body_Accelerator_Jerk_std_X                            
+[10] Time_Body_Accelerator_Jerk_std_Y                            
+[11] Time_Body_Accelerator_Jerk_std_Z                            
+[12] Time_Body_Gyroscope_std_X                                   
+[13] Time_Body_Gyroscope_std_Y                                   
+[14] Time_Body_Gyroscope_std_Z                                   
+[15] Time_Body_Gyroscope_Jerk_std_X                              
+[16] Time_Body_Gyroscope_Jerk_std_Y                              
+[17] Time_Body_Gyroscope_Jerk_std_Z                              
+[18] Time_Body_Accelerator_Magnitude_std                         
+[19] Time_Gravity_Accelerator_Magnitude_std                      
+[20] Time_Body_Accelerator_Jerk_Magnitude_std                    
+[21] Time_Body_Gyroscope_Magnitude_std                           
+[22] Time_Body_Gyroscope_Jerk_Magnitude_std                      
+[23] FFT_Body_Accelerator_std_X                                  
+[24] FFT_Body_Accelerator_std_Y                                  
+[25] FFT_Body_Accelerator_std_Z                                  
+[26] FFT_Body_Accelerator_Jerk_std_X                             
+[27] FFT_Body_Accelerator_Jerk_std_Y                             
+[28] FFT_Body_Accelerator_Jerk_std_Z                             
+[29] FFT_Body_Gyroscope_std_X                                    
+[30] FFT_Body_Gyroscope_std_Y                                    
+[31] FFT_Body_Gyroscope_std_Z                                    
+[32] FFT_Body_Accelerator_Magnitude_std                          
+[33] FFT_Body_Accelerator_Jerk_Magnitude_std                     
+[34] FFT_Body_Gyroscope_Magnitude_std                            
+[35] FFT_Body_Gyroscope_Jerk_Magnitude_std                       
+[36] Time_Body_Accelerator_mean_X                                
+[37] Time_Body_Accelerator_mean_Y                                
+[38] Time_Body_Accelerator_mean_Z                                
+[39] Time_Gravity_Accelerator_mean_X                             
+[40] Time_Gravity_Accelerator_mean_Y                             
+[41] Time_Gravity_Accelerator_mean_Z                             
+[42] Time_Body_Accelerator_Jerk_mean_X                           
+[43] Time_Body_Accelerator_Jerk_mean_Y                           
+[44] Time_Body_Accelerator_Jerk_mean_Z                           
+[45] Time_Body_Gyroscope_mean_X                                  
+[46] Time_Body_Gyroscope_mean_Y                                  
+[47] Time_Body_Gyroscope_mean_Z                                  
+[48] Time_Body_Gyroscope_Jerk_mean_X                             
+[49] Time_Body_Gyroscope_Jerk_mean_Y                             
+[50] Time_Body_Gyroscope_Jerk_mean_Z                             
+[51] Time_Body_Accelerator_Magnitude_mean                        
+[52] Time_Gravity_Accelerator_Magnitude_mean                     
+[53] Time_Body_Accelerator_Jerk_Magnitude_mean                   
+[54] Time_Body_Gyroscope_Magnitude_mean                          
+[55] Time_Body_Gyroscope_Jerk_Magnitude_mean                     
+[56] FFT_Body_Accelerator_mean_X                                 
+[57] FFT_Body_Accelerator_mean_Y                                 
+[58] FFT_Body_Accelerator_mean_Z                                 
+[59] FFT_Body_Accelerator_mean_Freq_X                            
+[60] FFT_Body_Accelerator_mean_Freq_Y                            
+[61] FFT_Body_Accelerator_mean_Freq_Z                            
+[62] FFT_Body_Accelerator_Jerk_mean_X                            
+[63] FFT_Body_Accelerator_Jerk_mean_Y                            
+[64] FFT_Body_Accelerator_Jerk_mean_Z                            
+[65] FFT_Body_Accelerator_Jerk_mean_Freq_X                       
+[66] FFT_Body_Accelerator_Jerk_mean_Freq_Y                       
+[67] FFT_Body_Accelerator_Jerk_mean_Freq_Z                       
+[68] FFT_Body_Gyroscope_mean_X                                   
+[69] FFT_Body_Gyroscope_mean_Y                                   
+[70] FFT_Body_Gyroscope_mean_Z                                   
+[71] FFT_Body_Gyroscope_mean_Freq_X                              
+[72] FFT_Body_Gyroscope_mean_Freq_Y                              
+[73] FFT_Body_Gyroscope_mean_Freq_Z                              
+[74] FFT_Body_Accelerator_Magnitude_mean                         
+[75] FFT_Body_Accelerator_Magnitude_mean_Freq                    
+[76] FFT_Body_Accelerator_Jerk_Magnitude_mean                    
+[77] FFT_Body_Accelerator_Jerk_Magnitude_mean_Freq               
+[78] FFT_Body_Gyroscope_Magnitude_mean                           
+[79] FFT_Body_Gyroscope_Magnitude_mean_Freq                      
+[80] FFT_Body_Gyroscope_Jerk_Magnitude_mean                      
+[81] FFT_Body_Gyroscope_Jerk_Magnitude_mean_Freq                 
+[82] Angle_Time_Body_Accelerator_Mean_gravity                    
+[83] Angle_Time_Body_Accelerator_Jerk_mean_Jerk_Mean_gravity_mean
+[84] Angle_Time_Body_Gyroscope_Mean_Jerk_Mean_gravity_mean       
+[85] Angle_Time_Body_Gyroscope_Jerk_mean_Jerk_Mean_gravity_mean  
+[86] Angle_X_Jerk_Mean_gravity_mean                              
+[87] Angle_Y_Jerk_Mean_gravity_mean                              
+[88] Angle_Z_Jerk_Mean_gravity_mean  
