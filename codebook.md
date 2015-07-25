@@ -3,8 +3,8 @@
 ## Data dictionary
 The following are the variables contained in the [tidy data set file](./TidyDataSet.txt): 
 
- [1] activity_name                                               
- [2] subject_id                                                  
+ [1] activity_name: Activity (i.e. LAYING).                                       
+ [2] subject_id:  ID of the subject performing the activity.                       
  [3] Time_Body_Accelerator_std_X                                 
  [4] Time_Body_Accelerator_std_Y                                 
  [5] Time_Body_Accelerator_std_Z                                 
