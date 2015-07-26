@@ -22,23 +22,23 @@ The source data and working directory shall be "UCI Har Dataset". [run_analysis.
  
  3) For each train & test cases:
  
- 	- Load measurements (from X_train.txt / X_test.txt)
+ 	- Load measurements (from X_train.txt / X_test.txt).
  	 
- 	- Load activity IDs (from y_train.txt / y_test.txt)
+ 	- Load activity IDs (from y_train.txt / y_test.txt).
  	 
- 	- Load subject IDs (from subject_train.txt / subject_test.txt) 
+ 	- Load subject IDs (from subject_train.txt / subject_test.txt).
  	
- 4) Merge each group (test & train) of measurements, activity IDs and subject IDs in one combined data frame
+ 4) Merge each group (test & train) of measurements, activity IDs and subject IDs in one combined data frame.
 
- 5) Merge (rbind) both combined data frame in one resulting data frame
+ 5) Merge (rbind) both combined data frame in one resulting data frame.
  
- 6) Assign variable names (from point 2) to the final data framwe.
+ 6) Assign variable names (from point 2) to the final data frame, in order to improve readability.
  
  7) Merge the data frame with activity labels (form point 1) in order to have a data frame with descriptive activity names.
  
  8) Select 'mean' and 'std' variables fron data frame.
  
- 9) Melt the data frame to long form and then dcast the long form into wide form, applying the mean function on every ovservation.
+ 9) Melt the data frame to long form, applying the mean function on every obvservation.
  
 10) Write output file
 
