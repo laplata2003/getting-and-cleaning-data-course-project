@@ -1,10 +1,16 @@
 
 # Loads required libraries
-library(reshape2)
-library(stringr)
-library(plyr)
-library(dplyr)
-library(tidyr)
+if("reshape2" %in% rownames(installed.packages()) == FALSE) {install.packages("reshape2")};library(reshape2)
+if("stringr" %in% rownames(installed.packages()) == FALSE) {install.packages("stringr")};library(stringr)
+if("plyr" %in% rownames(installed.packages()) == FALSE) {install.packages("plyr")};library(plyr)
+if("dplyr" %in% rownames(installed.packages()) == FALSE) {install.packages("dplyr")};library(dplyr)
+if("tidyr" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyr")};library(tidyr)
+
+#library(reshape2)
+#library(stringr)
+#library(plyr)
+#library(dplyr)
+#library(tidyr)
 
 # Reads feature labeles
 features <- read.table('features.txt', col.names=c('id', 'feature_name'))
@@ -38,37 +44,35 @@ completMeasurementsTrain <- cbind(subjectIdsTrain, activityIdsTrain, measurement
 measurements <- rbind(completMeasurementsTest, completMeasurementsTrain) 
 
 # Complete column names in measurements. 
-# Makes fixes on feature names due make.names() invalid character convertion. 
-# Converts contractions in full names in order to improve readability.
-featureNames <- make.names(as.character(features$feature_name), unique = TRUE)
+# Converts names in order to improve readability.
+featureNames <- features$feature_name
 
-featureNames <- str_replace_all(featureNames, "[.][.]", "")
-featureNames <- str_replace_all(featureNames, "[.]", "_")
-featureNames <- str_replace_all(featureNames, "BodyBody", "Body")
-featureNames <- str_replace_all(featureNames, "mean", "mean_")
-featureNames <- str_replace_all(featureNames, "tBody", "Time_Body_")
-featureNames <- str_replace_all(featureNames, "fBody", "FFT_Body_")
-featureNames <- str_replace_all(featureNames, "tGravity", "Time_Gravity_")
-featureNames <- str_replace_all(featureNames, "fGravity", "FFT_Gravity_")
-featureNames <- str_replace_all(featureNames, "Acc", "_Accelerator_")
-featureNames <- str_replace_all(featureNames, "Gyro", "_Gyroscope_")
-featureNames <- str_replace_all(featureNames, "Mag", "_Magnitude_")
-featureNames <- str_replace_all(featureNames, "^angle.", "Angle_")
-featureNames <- str_replace_all(featureNames, "JerkMean", "_Jerk_mean_")
-featureNames <- str_replace_all(featureNames, "gravityMean", "Jerk_Mean_gravity_mean_")
-featureNames <- str_replace_all(featureNames, "[_][_]", "_")
-featureNames <- str_replace_all(featureNames, "_$", "")
+featureNames <- gsub("\\(\\)", "", featureNames)
+featureNames <- gsub("Acc", "-acceleration", featureNames)
+featureNames <- gsub("Mag", "-Magnitude", featureNames)
+featureNames <- gsub("^t(.*)$", "time-\\1", featureNames)
+featureNames <- gsub("^f(.*)$", "frequency-\\1", featureNames)
+featureNames <- gsub("(Jerk|Gyro)", "-\\1", featureNames)
+featureNames <- gsub("BodyBody", "Body", featureNames)
+featureNames <- tolower(featureNames)
+
 colnames(measurements)<- c('subject_id', 'activity_id', featureNames)
 
 # Merge measurements with activities in order to hava a column with descriptive activity names
 measurementsWithActivities <- merge(x = activities, y = measurements, by.x = "id", by.y = "activity_id")
 
 # Selects only standard deviation and mean measurementes
-stdAndMeanMeasurements <- select(measurementsWithActivities, activity_name, subject_id, contains('std'), contains('mean'))
+stdAndMeanMeasurements <- select(measurementsWithActivities, activity_name, subject_id, contains('std'), 
+                                 contains('mean'), -contains('meanFreq'), -contains('angle'))
 
-# Melt and cast measurments in order to calculate means of each measurment grouped by activity and subject
+# Melt in order to transform measurement columns into rows
 stdAndMeanMeasurements.wide <- melt(stdAndMeanMeasurements, id.vars = c('activity_name', 'subject_id'))
-byActivityAndSubjectMeasumentMeans <- dcast(stdAndMeanMeasurements.wide, activity_name + subject_id ~ variable, mean)
+
+# Group by activity and subject
+byActivityAndSubjectMeasumentGroup <- group_by(stdAndMeanMeasurements.wide, activity_name, subject_id, variable)
+
+# Calculate means of each measurment grouped by activity and subject
+byActivityAndSubjectMeasumentGroupMeans <- summarise(byActivityAndSubjectMeasumentGroup, mean = mean(value))
 
 # Write tidy file
-write.table(byActivityAndSubjectMeasumentMeans, "TidyDataSet.txt", row.names=FALSE)
+write.table(byActivityAndSubjectMeasumentGroupMeans, "TidyDataSet.txt", row.names=FALSE)
