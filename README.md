@@ -38,7 +38,7 @@ The source data and working directory shall be "UCI Har Dataset". [run_analysis.
  
  8) Select 'mean' and 'std' variables fron data frame.
  
- 9) Melt the data frame to long form, applying the mean function on every obvservation.
+ 9) Melt the data frame to long form, group by activity and subject and apply the mean function.
  
 10) Write output file
 
